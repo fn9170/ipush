@@ -2,7 +2,7 @@ Flask==2.3.2
 Werkzeug==2.3.6
 Jinja2==3.1.2
 ultralytics>=8.0.196
-opencv-python==4.8.0.74
+opencv-python==4.8.1.78
 Pillow==10.0.0
 numpy==1.24.3
 torch>=1.7.0,<2.6.0
