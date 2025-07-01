@@ -19,6 +19,7 @@ An intelligent object detection platform based on Flask and YOLOv8, providing a 
 
 ## Interface Preview
 
+
 ![YOLO Inspector Screenshot](ui/page.png)
 
 *YOLO Inspector main interface showcasing modern design and intuitive operation workflow*
