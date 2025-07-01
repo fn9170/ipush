@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  yolov8-detection:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yolov8-detection-app
+    ports:
+      - "5800:5800"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FLASK_ENV=production
+    volumes:
+      # 持久化存储上传和结果文件
+      - ./uploads:/app/uploads
+      - ./results:/app/results
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5800/model_info"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - yolov8-network
+
+networks:
+  yolov8-network:
+    driver: bridge
+
+# 可选：如果需要使用外部数据卷
+# volumes:
+#   yolov8-uploads:
+#   yolov8-results:
+#   yolov8-logs: 
